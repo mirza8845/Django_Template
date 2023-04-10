@@ -1,0 +1,27 @@
+{% extends "meetups/base/base.html" %}
+{% load static %}
+{% block title %}All Meetups{% endblock  %}
+    {#    <link rel="stylesheet" href="{% static '' %}" >#}
+{#{% block site_css %}#}
+{#{% endblock %}#}
+{#<link rel="stylesheet" href="{% static '/meetups/styles/base.css' %}">#}
+
+{% block main_heading %}
+    We got great meetups coming up!
+{% endblock %}
+{% block header_content %}
+        <p>Find the one that best suits your needs</p>
+
+{% endblock %}
+
+{% block body %}
+<section>
+        <h2>Upcoming Meetups</h2>
+        <ol>
+            {% for meets in meetups %}
+            {% include 'meetups/includes/includes.html' with title=meets.title image=meets.image location=meets.location slug=meets.slug %}
+            {% endfor %}
+        </ol>
+    </section>
+{% endblock %}
+
